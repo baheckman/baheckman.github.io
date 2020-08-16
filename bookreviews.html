@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brian A. Heckman</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id=container>
+    <div id="navbar">
+        <a href="index.html"><button>Home</button></a> | 
+        <a href="about.html"><button>About Me</button></a> | 
+        <a href="projects.html"><button>Projects</button></a> | 
+        <a href="talks.html"><Button>Talks</Button></a>
+    </div>
+    <div id="title">
+        {{ title }}
+    </div>
+    <div id="project">
+
+    </div>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#title',
+      data: {
+        title: 'Book Reviews'
+      }
+    })
+    var navbar = new Vue({
+        el: '#navbar',
+        data: {
+            tagline: 'Welcome to my site.'
+        }
+    })
+  </script>
+  <style>
+      @font-face {
+          font-family: 'OpenSans-Regular';
+          src: url('OpenSans-Regular.ttf');
+      }
+    #container {
+        margin: 7%
+    }
+    #title {
+        background-color: white;
+        color: #00758D;
+        font-size: 48px;
+        font-family: 'OpenSans-Regular';
+        text-align: center;
+    }
+
+    #navbar {
+        color: white;
+        color: #555759;
+        font-size: 24px;
+        font-family: 'OpenSans-Regular';
+        text-align: center;
+    }
+
+    .button {
+      background-color: white;
+      color: #00758D
+    }
+
+    p {
+        font-family: verdana;
+        font-size: 20px;
+    }
+  </style>
+</body>
+</html>
