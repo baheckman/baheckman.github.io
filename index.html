@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Brian A. Heckman</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div id=container>
+    <div id="title">
+        {{ title }}
+    </div>
+    <div id="navbar">
+        <a href="about.html"><button class="navbar-button">About Me</button></a> | 
+        <a href="projects.html"><button class="navbar-button">Projects</button></a> | 
+        <a href="bookreviews.html"><button class="navbar-button">Books Reviews</button></a> | 
+        <a href="talks.html"><Button class="navbar-button">Talks</Button></a>
+        <br>
+        <a href="about.html"><button class="navbar-button">GitHub</button></a> | 
+        <a href="projects.html"><button class="navbar-button">LinkedIn</button></a> | 
+        <a href="resume.pdf"><button class="navbar-button">Resume</button></a>
+    </div>
+    </div>
+  <script>
+    var app = new Vue({
+      el: '#title',
+      data: {
+        title: 'Brian A. Heckman'
+      }
+    })
+    var navbar = new Vue({
+        el: '#navbar',
+        data: {
+            tagline: 'Welcome to my site.'
+        }
+    })
+  </script>
+  <style>
+      @font-face {
+          font-family: 'OpenSans-Regular';
+          src: url('OpenSans-Regular.ttf');
+      }
+    #container {
+        margin: 15%
+    }
+    #title {
+        background-color: white;
+        color: #00758D;
+        font-size: 48px;
+        font-family: 'OpenSans-Regular';
+        text-align: center;
+    }
+
+    #navbar {
+        background-color: white;
+        color: #555759;
+        font-size: 24px;
+        font-family: 'OpenSans-Regular';
+        text-align: center;
+    }
+
+    .navbar-button {
+        background-color: white;
+        color: #555759;
+        font-size: 16px;
+        font-family: 'OpenSans-Regular';
+        text-align: center;
+        border: none
+    }
+
+    p {
+        font-family: verdana;
+        font-size: 20px;
+    }
+  </style>
+</body>
+</html>
