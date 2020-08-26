@@ -1,13 +1,31 @@
-body {
-  background-color: lightblue;
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url('fonts/OpenSans-Regular.ttf');
 }
-
-h1 {
-  color: white;
+#container {
+  margin: 15%
+}
+#title {
+  background-color: white;
+  color: #00758D;
+  font-size: 48px;
+  font-family: 'OpenSans-Regular';
   text-align: center;
 }
 
-p {
-  font-family: verdana;
-  font-size: 20px;
+#navbar {
+  background-color: white;
+  color: #555759;
+  font-size: 24px;
+  font-family: 'OpenSans-Regular';
+  text-align: center;
+}
+
+.navbar-button {
+  background-color: white;
+  color: #555759;
+  font-size: 16px;
+  font-family: 'OpenSans-Regular';
+  text-align: center;
+  border: none
 }
