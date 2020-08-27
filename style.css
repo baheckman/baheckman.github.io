@@ -60,6 +60,8 @@ body {
 
 .post-image {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .article-details {
