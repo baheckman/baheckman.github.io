@@ -18,7 +18,9 @@
         </div>
         <br>
         <br>
-        <blog-card></blog-card>
+        <book-card name="Poor Economics" image="poor_economics_cover.jpg" author="Abhijit V. Banerjee, Esther Duflo" desc="Currently reading"></book-card>
+        <br>
+        <book-card name="Designing Data-Intensive Applications" image="designing_data_intensive_apps_cover.jpg" author="Martin Kleppmann" desc="Fantasitc overview of how to design reliable systems! Mostly a survey of relevant techniques, not very hands on, but still excellent."></book-card>
     </div>
 
     <script type="text/x-template" id="blog-card">
@@ -29,7 +31,6 @@
             <h3 class="post-title">{{ name }}</h3>
             <p class="post-description">{{ desc }}</p>
             <p class="post-author">Author: {{ author }}</p>
-            <a href='https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321/ref=sr_1_1?crid=1WAIQ35D2EVGP&dchild=1&keywords=designing+data-intensive+applications&qid=1598482613&sprefix=desigining+data%2Caps%2C144&sr=8-1'>Purchase Here</a>
             </div>
         </article>
         </a>
@@ -42,14 +43,9 @@
           }
         })
 
-        Vue.component('blog-card', {
-            template: '#blog-card',
-            data: () => ({
-                name: 'Designing Data-Intensive Applications',
-                image: 'designing_data_intensive_apps_cover.jpg',
-                author: 'Martin Kleppmann',
-                desc: 'Fantasitc overview of how to design reliable systems! Mostly a survey of relevant techniques, not very hands on, but still excellent.',
-            })
+        Vue.component('book-card', {
+            props: ['name', 'author', 'image', 'desc'],
+            template: '#blog-card'
         });
         
         new Vue({
