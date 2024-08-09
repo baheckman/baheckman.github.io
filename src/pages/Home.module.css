@@ -1,0 +1,17 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 50;
+    padding-top: 20vh;
+    /* This moves the content down */
+}
+
+.contentWrapper {
+    text-align: center;
+    max-width: 800px;
+    /* Adjust as needed */
+    width: 100%;
+    padding: 20px;
+}

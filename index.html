@@ -1,29 +1,19 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-  <title>Brian A. Heckman</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>  
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brian</title>
 </head>
+
 <body>
-  <div id=container>
-    <div id="title">
-        {{ title }}
-    </div>
-    <div id="navbar">
-        <a href="book_reviews.html"><button class="navbar-button">Book Reviews</button></a> | 
-        <a href="https://github.com/baheckman"><button class="navbar-button">GitHub</button></a> | 
-        <a href="https://www.linkedin.com/in/brian-heckman-20604182/"><button class="navbar-button">LinkedIn</button></a> | 
-        <a href="attachments/Resume.pdf"><button class="navbar-button">Resume</button></a>
-    </div>
-    </div>
-  <script>
-    var app = new Vue({
-      el: '#title',
-      data: {
-        title: 'Brian A. Heckman'
-      }
-    })
-  </script>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
+
 </html>

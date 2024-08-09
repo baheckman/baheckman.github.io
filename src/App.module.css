@@ -1,0 +1,57 @@
+.app {
+  font-family: 'Darker Grotesque', Arial, sans-serif;
+  font-size: 1.7em;
+  color: #333;
+  line-height: 1.6;
+}
+
+.header {
+  padding: 1rem 0;
+}
+
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navList li {
+  margin-left: 2rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.4rem;
+  margin: 3rem;
+  transition: color 0.3s ease;
+}
+
+.navLink:hover {
+  color: #69c5fe;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .navList {
+    justify-content: center;
+  }
+
+  .navList li {
+    margin: 0 1rem;
+  }
+}
