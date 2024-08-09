@@ -118,6 +118,29 @@ const Experience: React.FC = ({
         },
     ];
 
+    const education: Experience[] = [
+        {
+            id: 2,
+            companyLogo: GATechLogo,
+            companyName: "Georgia Institute of Technology",
+            jobTitle: "M.S. Computer Science",
+            accomplishments: [],
+            technologies: [],
+            startDate: "Fall 2020",
+            endDate: "Spring 2023"
+        },
+        {
+            id: 1,
+            companyLogo: SyracuseLogo,
+            companyName: "Syracuse University",
+            jobTitle: "B.S. Computer Science",
+            accomplishments: [],
+            technologies: [],
+            startDate: "Fall 2013",
+            endDate: "Spring 2017"
+        },
+    ]
+
     return (
         <div className="experiences-container">
             <h2>Professional Experience</h2>
@@ -147,6 +170,21 @@ const Experience: React.FC = ({
                         technologies={experience.technologies}
                         startDate={experience.startDate}
                         endDate={experience.endDate}
+                    />
+                ))}
+            </div>
+            <h2>Education</h2>
+            <div className="experiences-grid">
+                {education.map((edu) => (
+                    <ExperienceCard
+                        key={edu.id}
+                        companyLogo={edu.companyLogo}
+                        companyName={edu.companyName}
+                        jobTitle={edu.jobTitle}
+                        accomplishments={edu.accomplishments}
+                        technologies={edu.technologies}
+                        startDate={edu.startDate}
+                        endDate={edu.endDate}
                     />
                 ))}
             </div>
