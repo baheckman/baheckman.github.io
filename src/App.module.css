@@ -74,3 +74,10 @@
   color: #ff6b6b;
   /* Hover color - you can change this */
 }
+
+@media (min-width: 768px) {
+  .socialButton {
+    font-size: 32px;
+    /* Larger size on bigger screens */
+  }
+}
