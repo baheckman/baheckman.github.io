@@ -15,3 +15,13 @@
     width: 100%;
     padding: 20px;
 }
+
+.name {
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.name:hover {
+    color: #69c5fe;
+    /* Replace with your desired hover color */
+}

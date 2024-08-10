@@ -29,7 +29,7 @@ const Experience: React.FC = ({
             jobTitle: "Sr Software Engineer",
             accomplishments: [
                 "Refactored main metadata service api to increase performance 10 fold.",
-                "Implemented and oversaw scaling efforts to support 5x in customer data.",
+                "Implemented and oversaw scaling efforts to support 5x in customer.",
                 "Optimized database schema and infrastructure to cut RDS hosting costs by 40%.",
                 "Introduced multiple first class product features including metadata tagging and third party integrations.",
                 "Built data pipelines using Kafka to ingest and transform over 1 billion sensor events per day.",
@@ -74,7 +74,7 @@ const Experience: React.FC = ({
 
     const teachingExperiences: Experience[] = [
         {
-            id: 3,
+            id: 2,
             companyLogo: PursuitLogo,
             companyName: "Pursuit",
             jobTitle: "Mentor Volunteer",
@@ -87,7 +87,7 @@ const Experience: React.FC = ({
             endDate: "Present"
         },
         {
-            id: 2,
+            id: 1,
             companyLogo: GATechLogo,
             companyName: "Georgia Institute of Technology",
             jobTitle: "Instructional Associate, CS-7280 Network Science",
@@ -100,21 +100,6 @@ const Experience: React.FC = ({
             technologies: ["Python", "NetworkX"],
             startDate: "January 2023",
             endDate: "Present"
-        },
-        {
-            id: 1,
-            companyLogo: SyracuseLogo,
-            companyName: "Syracuse University",
-            jobTitle: "Teaching Assistant, CS-351 Data Structures",
-            accomplishments: [
-                "Grade homeworks and quizes.",
-                "Devise new homework and quiz questions.",
-                "Hold weekly office hours to discuss course content and help students with materials.",
-                "Cover materials such as LinkedList, Hashing, Trees, Stacks, Queues, Heaps, and Graphs."
-            ],
-            technologies: ["Java"],
-            startDate: "January 2016",
-            endDate: "May 2016"
         },
     ];
 

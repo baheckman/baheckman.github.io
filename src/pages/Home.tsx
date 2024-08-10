@@ -8,7 +8,7 @@ const Home: React.FC = () => {
         <div className={styles.homeContainer}>
             {/* <GraphAnimation /> */}
             <div className={styles.contentWrapper}>
-                <h1>Hi, I'm Brian.</h1>
+                <h1>Hi, I'm <span className={styles.name}>Brian</span>.</h1>
                 <p>I like graphs, databases, and dogs.</p>
             </div>
         </div>
