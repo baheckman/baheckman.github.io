@@ -31,7 +31,7 @@ export function AboutWindow() {
   return (
     <>
       <MenuBar />
-      <div style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: 14, alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 14, alignItems: "start" }}>
         <div className="sunken" style={{ aspectRatio: "1 / 1", display: "grid", placeItems: "center", padding: 0, overflow: "hidden" }}>
           <img
             src="/src/assets/8bit_nyc_headshot.png"
@@ -49,6 +49,12 @@ export function AboutWindow() {
           </p>
           <p style={{ margin: "0 0 8px" }}>
             {PERSONAL_INFO.bio[2]}
+          </p>
+          <p style={{ margin: "0 0 8px" }}>
+            {PERSONAL_INFO.bio[3]}
+          </p>
+          <p style={{ margin: "0 0 8px" }}>
+            {PERSONAL_INFO.bio[4]}
           </p>
         </div>
       </div>

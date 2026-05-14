@@ -11,7 +11,9 @@ export const PERSONAL_INFO = {
   bio: [
     "I'm Brian — a software engineer based in NYC.",
     "I focus on building both robust technical systems and collaborative teams where great people can do their best work on meaningful challenges.",
-    "Currently Software Engineer bulding the Storage Platform at Abnormal Security. Previously: worked at Density, Vanguard, GE Digital. Always learning something new."
+    "Currently: Software Engineer bulding the Storage Platform at Abnormal Security.",
+    "Previously: worked at Density, Vanguard, GE Digital.",
+    "Always learning something new."
   ],
   languages: "English, forgettable German",
   skills: [
