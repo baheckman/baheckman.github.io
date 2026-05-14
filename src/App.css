@@ -1,42 +1,559 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* ============================================================
+   90s/Y2K personal site — Windows 98 theme stylesheet
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; }
+body {
+  font: 12px Tahoma, "MS Sans Serif", Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  user-select: none;
+}
+img { image-rendering: pixelated; }
+
+/* CSS variables for Windows 98 theme */
+:root {
+  --c-face: #c0c0c0;
+  --c-shadow: #808080;
+  --c-hilight: #ffffff;
+  --c-3ddkshadow: #404040;
+  --c-3dlight: #dfdfdf;
+  --c-btntext: #000000;
+  --c-window: #ffffff;
+  --c-windowtext: #000000;
+  --c-activecaption: #0a246a;
+  --c-captiontext: #ffffff;
+  --c-inactivecaption: #808080;
+  --c-inactivecaptiontext: #c0c0c0;
+  --c-tb1: #0a246a;
+  --c-tb2: #a6caf0;
+}
+
+/* desktop ============================================================== */
+.desktop {
+  position: fixed; 
+  inset: 0;
+  overflow: hidden;
+  background: var(--c-face);
+}
+
+.wallpaper {
+  position: absolute; 
+  inset: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" fill="%23008080"/><path d="M0 0h20v20H0z" fill="%2300a0a0"/><path d="M20 20h20v20H20z" fill="%2300a0a0"/></svg>');
+}
+
+/* Memphis wallpaper pattern - exact from Claude Design */
+[data-wallpaper="memphis"] {
+  background: #2a1a6e;
+}
+
+[data-wallpaper="memphis"] .wallpaper {
+  background-color: #2a1a6e;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'><g fill='none' stroke-linecap='round'><path d='M18 30 Q30 18 42 30 T66 30' stroke='%23ff5fbf' stroke-width='3'/><polygon points='150,18 168,48 132,48' fill='%2300d4ff'/><circle cx='195' cy='55' r='3' fill='%23ffea3a'/><circle cx='205' cy='65' r='3' fill='%23ffea3a'/><circle cx='195' cy='75' r='3' fill='%23ffea3a'/><circle cx='185' cy='65' r='3' fill='%23ffea3a'/><path d='M82 92 v12 M76 98 h12' stroke='%23ff3eb5' stroke-width='3'/><path d='M22 138 l10 -10 l10 10 l10 -10 l10 10' stroke='%23ffffff' stroke-width='2'/><polygon points='180,140 196,156 180,172 164,156' stroke='%2300d4ff' stroke-width='2'/><circle cx='118' cy='42' r='4' fill='%2300d4ff'/><path d='M40 178 a12 12 0 0 1 24 0' fill='%23ff5fbf'/><path d='M132 188 v10 M127 193 h10 M128 189 l8 8 M128 197 l8 -8' stroke='%23ffea3a' stroke-width='1.5'/><path d='M105 130 Q115 120 125 130 T145 130' stroke='%2300d4ff' stroke-width='2.5'/><polygon points='60,60 70,75 50,75' fill='%23ff5fbf'/><circle cx='90' cy='195' r='5' fill='none' stroke='%23ffffff' stroke-width='1.5'/></g></svg>"),
+    linear-gradient(160deg, #3a2178 0%, #2a1a6e 40%, #1e2b8c 100%);
+  background-size: 220px 220px, cover;
+}
+
+[data-wallpaper="teal"] .wallpaper {
+  background: linear-gradient(45deg, #008080 25%, transparent 25%), 
+              linear-gradient(-45deg, #008080 25%, transparent 25%), 
+              linear-gradient(45deg, transparent 75%, #008080 75%), 
+              linear-gradient(-45deg, transparent 75%, #008080 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-color: #40a0a0;
+}
+
+/* icons on desktop ===================================================== */
+.icons {
+  position: absolute; 
+  top: 12px; 
+  left: 12px;
+  display: grid; 
+  grid-template-columns: repeat(2, 80px);
+  gap: 6px 12px;
+  z-index: 1;
+}
+
+.icon {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  width: 80px; 
+  padding: 6px 2px 4px;
+  text-align: center; 
+  cursor: default;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+  border: 1px dotted transparent;
+}
+
+.icon.active {
+  background: rgba(0,0,128, 0.3);
+  border: 1px dotted #fff;
+}
+
+.icon-glyph {
+  width: 36px; 
+  height: 36px;
+  display: grid; 
+  place-items: center;
+  font-size: 28px; 
+  line-height: 1;
+  margin-bottom: 4px;
+  filter: drop-shadow(1px 1px 0 rgba(0,0,0,.4));
+}
+
+.icon-label {
+  font-size: 11px;
+  line-height: 1.2;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* windows ============================================================== */
+.window {
+  position: absolute;
+  background: var(--c-face);
+  border: 2px outset var(--c-face);
+  min-width: 200px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.window.inactive {
+  z-index: 1 !important;
+}
+
+.window.inactive .titlebar {
+  background: var(--c-inactivecaption);
+  color: var(--c-inactivecaptiontext);
+}
+
+.titlebar {
+  height: 24px;
+  background: linear-gradient(90deg, var(--c-activecaption) 0%, var(--c-tb2) 100%);
+  color: var(--c-captiontext);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  cursor: move;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.title-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.title-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.title-btns {
+  display: flex;
+  gap: 2px;
+}
+
+.title-btn {
+  width: 18px;
+  height: 16px;
+  background: var(--c-face);
+  border: 1px outset var(--c-face);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: grid;
+  place-items: center;
+}
+
+.title-btn:hover {
+  background: var(--c-3dlight);
+}
+
+.title-btn:active {
+  border: 1px inset var(--c-face);
+}
+
+.window-body {
+  flex: 1;
+  padding: 12px;
+  background: var(--c-window);
+  color: var(--c-windowtext);
+  overflow: auto;
+  border-top: 1px solid var(--c-shadow);
+}
+
+.resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  cursor: nw-resize;
+  background: var(--c-face);
+  border-left: 1px solid var(--c-shadow);
+  border-top: 1px solid var(--c-shadow);
+  z-index: 10;
+}
+
+.resize-handle::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 0;
+  height: 0;
+  border: 4px solid transparent;
+  border-bottom-color: var(--c-shadow);
+  border-right-color: var(--c-shadow);
+}
+
+/* taskbar ============================================================== */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: var(--c-face);
+  border-top: 1px solid var(--c-hilight);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  z-index: 1000;
+}
+
+.start-btn {
+  height: 24px;
+  background: var(--c-face);
+  border: 1px outset var(--c-face);
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.start-btn:active {
+  border: 1px inset var(--c-face);
+}
+
+.task-divider {
+  width: 2px;
+  height: 20px;
+  border-left: 1px solid var(--c-shadow);
+  border-right: 1px solid var(--c-hilight);
+}
+
+.task-list {
+  flex: 1;
+  display: flex;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.task-btn {
+  height: 24px;
+  background: var(--c-face);
+  border: 1px outset var(--c-face);
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  min-width: 120px;
+  max-width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.task-btn:active,
+.task-btn.active {
+  border: 1px inset var(--c-face);
+  background: var(--c-3dlight);
+}
+
+.tray {
+  height: 24px;
+  background: var(--c-face);
+  border: 1px inset var(--c-face);
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  min-width: 80px;
+}
+
+/* start menu =========================================================== */
+.start-menu {
+  background: var(--c-face);
+  border: 2px outset var(--c-face);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* form elements ======================================================== */
+.btn {
+  background: var(--c-face);
+  border: 1px outset var(--c-face);
+  padding: 4px 12px;
+  font: inherit;
+  cursor: pointer;
+  min-height: 22px;
+}
+
+.btn:hover {
+  background: var(--c-3dlight);
+}
+
+.btn:active {
+  border: 1px inset var(--c-face);
+}
+
+.raised {
+  border: 1px outset var(--c-face);
+  background: var(--c-face);
+}
+
+.sunken {
+  border: 1px inset var(--c-face);
+  background: var(--c-window);
+  padding: 8px;
+}
+
+/* content styles ======================================================= */
+.menubar {
+  background: var(--c-face);
+  border-bottom: 1px solid var(--c-shadow);
+  padding: 4px 8px;
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+}
+
+.menubar span {
+  padding: 2px 4px;
+  cursor: default;
+}
+
+.menubar span:hover {
+  background: var(--c-tb1);
+  color: white;
+}
+
+.statusbar {
+  border-top: 1px solid var(--c-shadow);
+  background: var(--c-face);
+  padding: 2px;
+  display: flex;
+  font-size: 11px;
+  height: 20px;
+  align-items: center;
+}
+
+.statusbar .cell {
+  border: 1px inset var(--c-face);
+  padding: 0 6px;
+  margin-right: 2px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.statusbar .cell:first-child {
+  flex: 1;
+}
+
+.section-h {
+  font-weight: bold;
+  margin: 12px 0 6px 0;
+  color: var(--c-windowtext);
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--c-shadow);
+  border-bottom: 1px solid var(--c-hilight);
+  margin: 12px 0;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.field-row dt {
+  font-weight: bold;
+  margin: 0;
+}
+
+.field-row dd {
+  margin: 0;
+}
+
+.muted {
+  color: var(--c-shadow);
+}
+
+.h-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.under-construction {
+  background: #ffffcc;
+  border: 1px solid #ffcc00;
+  padding: 8px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* project grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.project-item {
+  text-align: center;
+  cursor: pointer;
+}
+
+.project-item:hover .project-thumb {
+  background: var(--c-3dlight);
+}
+
+.project-thumb {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  font-size: 10px;
+  color: var(--c-shadow);
+}
+
+.placeholder-thumb {
+  font-family: monospace;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.project-title {
+  font-weight: bold;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.project-sub {
+  font-size: 10px;
+}
+
+.project-info {
+  padding: 0 4px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.bullets {
+  list-style-type: disc;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.bullets li {
+  margin-bottom: 2px;
+}
+
+/* now page */
+.now-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.now-item {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 8px;
+  border: 1px solid var(--c-shadow);
+  background: var(--c-window);
+  font-size: 11px;
+}
+
+.now-glyph {
+  font-size: 16px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.tag {
+  background: var(--c-face);
+  border: 1px inset var(--c-face);
+  padding: 1px 4px;
+  font-size: 9px;
+  font-weight: bold;
+  color: var(--c-shadow);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* tweaks panel */
+.tweaks-panel .window-body {
+  font-size: 11px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.tweaks-toggle {
+  transition: opacity 0.2s ease;
 }
 
-.card {
-  padding: 2em;
+.tweaks-toggle:hover {
+  opacity: 1 !important;
 }
 
-.read-the-docs {
-  color: #888;
+/* links */
+a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #800080;
+}
+
+a:hover {
+  color: #ff0000;
 }
