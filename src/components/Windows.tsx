@@ -33,13 +33,11 @@ export function AboutWindow() {
       <MenuBar />
       <div style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: 14, alignItems: "start" }}>
         <div className="sunken" style={{ aspectRatio: "1 / 1", display: "grid", placeItems: "center", padding: 0, overflow: "hidden" }}>
-          <div style={{
-            width: "100%", height: "100%", display: "grid", placeItems: "center",
-            background: "repeating-linear-gradient(135deg, rgba(0,0,0,.08) 0 6px, transparent 6px 14px)",
-            fontFamily: "ui-monospace, monospace", fontSize: 10, color: "currentColor", opacity: .6
-          }}>
-            [headshot.jpg]
-          </div>
+          <img
+            src="/src/assets/8bit_nyc_headshot.png"
+            alt="headshot"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
         </div>
         <div>
           <div className="section-h" style={{ marginTop: 0 }}>Hello, world. ☻</div>
