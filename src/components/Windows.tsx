@@ -1,5 +1,6 @@
 import React from 'react';
 import { PERSONAL_INFO, EXPERIENCE, EDUCATION, PROJECTS, NOW_ACTIVITIES, OPEN_SOURCE_AND_VOLUNTEERING } from '../data/personal';
+import headshotImg from '../assets/8bit_nyc_headshot.png';
 
 interface MenuBarProps {
   items?: string[];
@@ -34,7 +35,7 @@ export function AboutWindow() {
       <div style={{ display: "grid", gridTemplateColumns: "180px 1fr", gap: 14, alignItems: "start" }}>
         <div className="sunken" style={{ aspectRatio: "1 / 1", display: "grid", placeItems: "center", padding: 0, overflow: "hidden" }}>
           <img
-            src="/src/assets/8bit_nyc_headshot.png"
+            src={headshotImg}
             alt="headshot"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
